@@ -1,18 +1,18 @@
-*{
+* {
   box-sizing: border-box;
   outline: none;
+  font-family: 'Inter', system-ui;
   a {
     color: inherit;
     text-decoration: none;
   }
-  ul{
+  ul {
     margin: 0;
     padding: 0;
   }
-  li{
+  li {
     list-style-type: none;
   }
-
 }
 body {
   background: #e7f6ff;
@@ -20,6 +20,14 @@ body {
   font-family: 'Inter', system-ui;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  .removeBtn {
+    opacity: 0.5;
+    cursor: pointer;
+    transition: opacity 0.15s ease-in-out;
+    &:hover {
+      opacity: 1;
+    }
+  }
 }
 
 .wrapper {
@@ -29,74 +37,84 @@ body {
   max-width: 1080px;
   margin: 50px auto;
 }
-header{
+header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 40px;
   border-bottom: 1px solid #eaeaea;
-  .headerLeft{
+  .headerLeft {
     display: flex;
     align-items: center;
-    img{
+    img {
       margin-right: 15px;
     }
-    h3, p{
+    h3,
+    p {
       margin: 0;
     }
   }
-  .headerRight{
+  .headerRight {
     display: flex;
-    li{
+    li {
       margin-right: 30px;
     }
-    .cardInfo{
-      img{
+    .cardInfo {
+      img {
         margin-right: 5px;
       }
     }
   }
 }
 
-.content{
+.content {
   padding: 40px;
   h1 {
     margin: 0;
-    margin-bottom: 40px;
   }
 }
-.sneakers{
+.sneakers {
   display: flex;
   justify-content: space-between;
 }
-.card{
+.card {
   border: 1px solid #f8f8f8;
   width: 220px;
   padding: 20px;
   border-radius: 40px;
-  .cardInfo{
+  transition: box-shadow 0.2s ease-in-out, transform 0.2s ease-in-out;
+  &:hover {
+    box-shadow: 0px 20px 35px rgba(0, 0, 0, 0.06);
+    transform: translateY(-5px);
+  }
+  .favourite {
+    position: absolute;
+    cursor: pointer;
+  }
+  h5 {
+    font-weight: 400;
+    font-size: 14px;
+  }
+  .cardInfo {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    h5{
-      font-weight: 400;
-      font-size: 14px;
-    }
-    .cardPrice{
+
+    .cardPrice {
       display: flex;
       flex-direction: column;
-      span{
+      span {
         font-size: 13px;
         text-transform: uppercase;
         opacity: 0.5;
       }
-      b{
+      b {
         font-size: 13px;
       }
     }
   }
 }
-.button{
+.button {
   background: #ffffff;
   border: 1px solid #f2f2f2;
   box-sizing: border-box;
@@ -104,4 +122,134 @@ header{
   height: 32px;
   width: 32px;
   cursor: pointer;
+}
+.content-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 40px;
+}
+.search-block {
+  display: flex;
+  border: 1px solid #f3f3f3;
+  border-radius: 10px;
+  padding: 0 15px;
+  input {
+    border: 0;
+    padding: 13px;
+    font-size: 16px;
+    width: 200px;
+  }
+}
+.overlay {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+.drawer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: absolute;
+  width: 420px;
+  height: 100%;
+  right: 0;
+  background: #ffffff;
+  box-shadow: -10px 4px 24px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  .items{
+    flex: 1;
+    overflow: auto;
+    margin-bottom: 40px;
+  }
+}
+h2 {
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
+  margin-bottom: 30px;
+}
+.cartItem {
+  display: flex;
+  align-items: center;
+  border: 1px solid #f3f3f3;
+  border-radius: 30px;
+  padding: 10px 7px 29px 13px;
+  margin-bottom: 20px;
+  img {
+    margin-right: 20px;
+  }
+  .removeBtn {
+    opacity: 0.5;
+    cursor: pointer;
+    transition: opacity 0.15s ease-in-out;
+    &:hover {
+      opacity: 1;
+    }
+  }
+  .cartInfo {
+    margin-right: 20px;
+    p {
+      margin-bottom: 5px;
+      font-size: 16px;
+    }
+    b {
+      font-size: 14px;
+    }
+  }
+}
+.cartTotalBlock {
+  ul {
+    margin-bottom: 40px;   
+    li {
+      display: flex;
+      align-items: flex-end;
+      margin-bottom: 20px;
+    }
+
+    div {
+      flex: 1;
+      height: 1px;
+      border-bottom: 1px dashed #f3f3f3;
+      position: relative;
+      top: -4px;
+      margin: 0 7px;
+    }
+  }
+  .greenButton {
+    position: relative;
+    &:hover{
+      img{
+        transform: translateX(5px);
+      }
+    }
+    img{
+      position: absolute;
+      right: 30px;
+      top: 20px;
+      transition: transform 0.15s ease-in-out;
+    }
+  }
+}
+.greenButton {
+  width: 100%;
+  height: 55px;
+  background: #9dd558;
+  border-radius: 18px;
+  border: 0;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.1s ease-in-out;
+  &:hover{
+    background: lighten(#9dd558, 5%)
+  }
+  &:active{
+    background: darken(#9dd558, 5%)
+  }
 }
