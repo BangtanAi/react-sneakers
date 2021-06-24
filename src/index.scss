@@ -75,9 +75,10 @@ header {
 }
 .sneakers {
   display: flex;
-  justify-content: space-between;
+  
 }
 .card {
+  margin-right: 30px;
   border: 1px solid #f8f8f8;
   width: 220px;
   padding: 20px;
