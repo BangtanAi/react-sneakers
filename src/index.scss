@@ -59,7 +59,8 @@ header {
     li {
       margin-right: 30px;
     }
-    .cardInfo {
+    .cartInfo {
+      cursor: pointer;
       img {
         margin-right: 5px;
       }
@@ -77,53 +78,8 @@ header {
   display: flex;
   
 }
-.card {
-  margin-right: 30px;
-  border: 1px solid #f8f8f8;
-  width: 220px;
-  padding: 20px;
-  border-radius: 40px;
-  transition: box-shadow 0.2s ease-in-out, transform 0.2s ease-in-out;
-  &:hover {
-    box-shadow: 0px 20px 35px rgba(0, 0, 0, 0.06);
-    transform: translateY(-5px);
-  }
-  .favourite {
-    position: absolute;
-    cursor: pointer;
-  }
-  h5 {
-    font-weight: 400;
-    font-size: 14px;
-  }
-  .cardInfo {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
 
-    .cardPrice {
-      display: flex;
-      flex-direction: column;
-      span {
-        font-size: 13px;
-        text-transform: uppercase;
-        opacity: 0.5;
-      }
-      b {
-        font-size: 13px;
-      }
-    }
-  }
-}
-.button {
-  background: #ffffff;
-  border: 1px solid #f2f2f2;
-  box-sizing: border-box;
-  border-radius: 8px;
-  height: 32px;
-  width: 32px;
-  cursor: pointer;
-}
+
 .content-header {
   display: flex;
   align-items: center;
@@ -192,8 +148,11 @@ h2 {
       opacity: 1;
     }
   }
-  .cartInfo {
+  .cardInfo {
     margin-right: 20px;
+    img {
+      margin-right: 10px;
+    }
     p {
       margin-bottom: 5px;
       font-size: 16px;
