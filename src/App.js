@@ -10,6 +10,7 @@ function App() {
   const [items, setItems] = React.useState([]);
   const [cartOpened, setCartOpened] = React.useState(false);
   const [cartItems, setCartItems] = React.useState([]);
+  const [searchValue, setSearchValue] = React.useState('');
 
   React.useEffect(() => {
     axios.get('https://60d9d1c65f7bf1001754778d.mockapi.io/items').then((res) =>{
@@ -21,25 +22,33 @@ function App() {
     setCartItems((prev) => [...prev, obj]);
   }
 
+  const onChangeSearchInput = (event) => {
+    setSearchValue(event.target.value);
+  }
+
   return (
     <div className="wrapper">
       {cartOpened && <Drawer items={cartItems} onCloseCart={()=>setCartOpened(false)}/>}
       <Header onClickCart={()=>setCartOpened(true)} />
       <div className="content">
         <div className="content-header">
-          <h1>Все кроссовки</h1>
+          <h1>{searchValue ? `Поиск по запросу: "${searchValue}"` : 'Все кроссовки'}</h1>
           <div className="search-block">
             <img src="./img/search.svg" alt="search" />
-            <input placeholder="Поиск..." />
+            <input onChange={onChangeSearchInput} value={searchValue} placeholder="Поиск..." />
+            <img onClick={()=>setSearchValue('')} className="removeBtn" src="./img/btn-remove.svg" alt="removeBtn" />
           </div>
         </div>
 
         <div className="sneakers">
-          {items.map((obj) => (
+          {items
+          .filter((item) => item.title.toLowerCase().includes(searchValue.toLowerCase()))
+          .map((item, index) => (
             <Card
-            title={obj.title}
-            price={obj.price}
-            imageUrl={obj.imageUrl}
+            key={index}
+            title={item.title}
+            price={item.price}
+            imageUrl={item.imageUrl}
             onPlusItem ={(obj)=>onAddToCart(obj)}
             />
           ))}
