@@ -2,11 +2,19 @@ import Card from "./components/Card/Card";
 import Header from "./components/Header";
 import Drawer from "./components/Drawer";
 import React from "react";
+import axios from "axios";
+import './index.scss';
 
 
-const arr = [];
 function App() {
-  const[cartOpened, setCartOpened] = React.useState(false);
+  const [items, setItems] = React.useState([]);
+  const [cartOpened, setCartOpened] = React.useState(false);
+
+  React.useEffect(() => {
+    axios.get('https://60d9d1c65f7bf1001754778d.mockapi.io/items').then((res) =>{
+      setItems(res.data);
+    });
+  }, []);
   return (
     <div className="wrapper">
       {cartOpened && <Drawer onCloseCart={()=>setCartOpened(false)}/>}
@@ -21,7 +29,7 @@ function App() {
         </div>
 
         <div className="sneakers">
-          {arr.map((obj) => (
+          {items.map((obj) => (
             <Card
             title={obj.title}
             price={obj.price}

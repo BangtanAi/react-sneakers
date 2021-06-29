@@ -11,7 +11,7 @@ const onPlusCard =()=>{
             <div className={styles.favourite}>
               <img src="./img/heart-unliked.svg" alt="unlike" />
             </div>
-            <img width={133} height={112} src="./img/1.png" alt="" />
+            <img className={styles.mainImage} width={133} height={112} src={props.imageUrl} alt="" />
             <h5>{props.title}</h5>
             <div className={styles.cardInfo}>
               <div className={styles.cardPrice}>

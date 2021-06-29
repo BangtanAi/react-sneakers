@@ -76,9 +76,7 @@ header {
 }
 .sneakers {
   display: flex;
-  
 }
-
 
 .content-header {
   display: flex;
@@ -118,7 +116,7 @@ header {
   background: #ffffff;
   box-shadow: -10px 4px 24px rgba(0, 0, 0, 0.1);
   padding: 30px;
-  .items{
+  .items {
     flex: 1;
     overflow: auto;
     margin-bottom: 40px;
@@ -164,7 +162,7 @@ h2 {
 }
 .cartTotalBlock {
   ul {
-    margin-bottom: 40px;   
+    margin-bottom: 40px;
     li {
       display: flex;
       align-items: flex-end;
@@ -182,12 +180,12 @@ h2 {
   }
   .greenButton {
     position: relative;
-    &:hover{
-      img{
+    &:hover {
+      img {
         transform: translateX(5px);
       }
     }
-    img{
+    img {
       position: absolute;
       right: 30px;
       top: 20px;
@@ -206,10 +204,14 @@ h2 {
   font-weight: 500;
   cursor: pointer;
   transition: background 0.1s ease-in-out;
-  &:hover{
-    background: lighten(#9dd558, 5%)
+  &:hover {
+    background: lighten(#9dd558, 5%);
   }
-  &:active{
-    background: darken(#9dd558, 5%)
+  &:active {
+    background: darken(#9dd558, 5%);
   }
+}
+.sneakers {
+  display: flex;
+  flex-wrap: wrap;
 }
