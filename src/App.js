@@ -9,15 +9,21 @@ import './index.scss';
 function App() {
   const [items, setItems] = React.useState([]);
   const [cartOpened, setCartOpened] = React.useState(false);
+  const [cartItems, setCartItems] = React.useState([]);
 
   React.useEffect(() => {
     axios.get('https://60d9d1c65f7bf1001754778d.mockapi.io/items').then((res) =>{
       setItems(res.data);
     });
   }, []);
+
+  const onAddToCart = (obj) => {
+    setCartItems((prev) => [...prev, obj]);
+  }
+
   return (
     <div className="wrapper">
-      {cartOpened && <Drawer onCloseCart={()=>setCartOpened(false)}/>}
+      {cartOpened && <Drawer items={cartItems} onCloseCart={()=>setCartOpened(false)}/>}
       <Header onClickCart={()=>setCartOpened(true)} />
       <div className="content">
         <div className="content-header">
@@ -34,6 +40,7 @@ function App() {
             title={obj.title}
             price={obj.price}
             imageUrl={obj.imageUrl}
+            onPlusItem ={(obj)=>onAddToCart(obj)}
             />
           ))}
         </div>
