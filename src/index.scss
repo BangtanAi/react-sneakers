@@ -108,7 +108,7 @@ header {
 .drawer {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  // justify-content: space-between;
   position: absolute;
   width: 420px;
   height: 100%;
@@ -135,6 +135,7 @@ h2 {
   border-radius: 30px;
   padding: 10px 7px 29px 13px;
   margin-bottom: 20px;
+  overflow: hidden;
   img {
     margin-right: 20px;
   }
@@ -162,6 +163,7 @@ h2 {
 }
 .cartTotalBlock {
   ul {
+    display: block;
     margin-bottom: 40px;
     li {
       display: flex;
@@ -178,22 +180,9 @@ h2 {
       margin: 0 7px;
     }
   }
-  .greenButton {
-    position: relative;
-    &:hover {
-      img {
-        transform: translateX(5px);
-      }
-    }
-    img {
-      position: absolute;
-      right: 30px;
-      top: 20px;
-      transition: transform 0.15s ease-in-out;
-    }
-  }
 }
 .greenButton {
+  position: relative;
   width: 100%;
   height: 55px;
   background: #9dd558;
@@ -210,8 +199,43 @@ h2 {
   &:active {
     background: darken(#9dd558, 5%);
   }
+  &:hover {
+    img {
+      transform: translateX(5px);
+    }
+  }
+  img {
+    position: absolute;
+    right: 30px;
+    top: 20px;
+    transition: transform 0.15s ease-in-out;
+  }
 }
 .sneakers {
   display: flex;
   flex-wrap: wrap;
+}
+
+.cartEmpty {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  flex-direction: column;
+  flex: 1;
+  p {
+      width: 280px;
+      line-height: 24px;
+    }
+  &-img {
+    margin-bottom: 20px;
+    width: 120px;
+    height: 120px;
+  }
+}
+.drawer-block {
+  display: flex;
+  flex-direction: column;
+  .items {
+    overflow: hidden}
 }
